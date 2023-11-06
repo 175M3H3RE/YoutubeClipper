@@ -11,8 +11,8 @@ if DEFINED watchis if /i "%watchis%"=="watch" for /f "tokens=7 delims=.:?/^=&" %
 if DEFINED listis for /f "tokens=9 delims=.:?/^=&" %%i in (%string%) DO set listtok=%%i
 echo Spitting....
 echo. Token=%tokenv%
-if DEFINED listtok echo.https://www.youtube.com/watch?v=%tokenv%^^^&list=%listtok% | Clip
-if NOT DEFINED listtok echo.https://www.youtube.com/watch?v=%tokenv% | Clip
+if DEFINED listtok if DEFINED tokenv echo.https://www.youtube.com/watch?v=%tokenv%^^^&list=%listtok% | Clip
+if NOT DEFINED listtok if DEFINED tokenv echo.https://www.youtube.com/watch?v=%tokenv% | Clip
 REM https://www.Youtube.com/watch?v=d0ZuRK7Vg1U&list=RDWbSxzqA8QrA&index=22
 
 
