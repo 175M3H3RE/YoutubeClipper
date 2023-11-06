@@ -1,5 +1,6 @@
 @echo on
 for /f "tokens=*" %%i in ('powershell -c "(Get-clipboard)"') do set string="%%i"
+echo.%string% >Url.old.txt
 echo.String is %string%
 for /f "tokens=5 delims=.:?/^=&" %%i in (%string%) do set watchis=%%i
 
