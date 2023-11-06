@@ -7,6 +7,6 @@ echo Watchis: %watchis%
 if DEFINED watchis if /i "%watchis%"=="watch" for /f "tokens=7 delims=.:?/^=&" %%i in (%string%) DO set tokenv=%%i
 echo Spitting....
 echo. Token=%tokenv%
-echo.https://www.youtube.com/watch?v=%tokenv% | Clip
+if DEFINED tokenv echo.https://www.youtube.com/watch?v=%tokenv% | Clip
 REM https://www.Youtube.com/watch?v=d0ZuRK7Vg1U&list=RDWbSxzqA8QrA&index=22
 
