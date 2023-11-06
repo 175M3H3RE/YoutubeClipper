@@ -1,9 +1,9 @@
 @echo on
-for /f "tokens=*" %%i in ('powershell -c "(Get-clipboard).ToLower()"') do set string="%%i"
+for /f "tokens=*" %%i in ('powershell -c "(Get-clipboard)"') do set string="%%i"
 echo.String is %string%
 for /f "tokens=5 delims=.:?/" %%i in (%string%) do set watchis=%%i
 echo Watchis: %watchis%
-if DEFINED watchis if "%watchis%"=="watch" for /f "tokens=7 delims=.:?/^=&" %%i in (%string%) DO set tokenv=%%i
+if DEFINED watchis if /i "%watchis%"=="watch" for /f "tokens=7 delims=.:?/^=&" %%i in (%string%) DO set tokenv=%%i
 echo Spitting....
 echo. Token=%tokenv%
 echo.https://www.youtube.com/watch?v=%tokenv% | Clip
